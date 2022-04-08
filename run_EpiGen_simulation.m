@@ -81,8 +81,8 @@ gen_removed_mat = dis_removed_gen;
 
 
 %PULL DISTRIBUTION OF EPIGENETIC EFFECTS FOR 'KEPT' POPULATIONS
-dis_epi = zeros(N, time);
 [mepi, nepi] = size(population_disepi);
+dis_epi = zeros(N, nepi);
 for e=1:mepi
     etmp = {population_disepi{e,:}};
     tf = cellfun('isempty',etmp);
@@ -96,8 +96,8 @@ epi_mat = dis_epi;
 
 
 %PULL DISTRIBUTION OF EPIGENETIC EFFECTS FOR 'REMOVED' POPULATIONS
-dis_removed_epi = zeros(N, time);
 [row, col] = size(population_removed_disepi);
+dis_removed_epi = zeros(N, col);
 for er=1:row
     ertmp = {population_removed_disepi{er,:}};
     tf = cellfun('isempty',ertmp);

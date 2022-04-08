@@ -118,7 +118,6 @@ check_count = 100; %print results every check_count generations
 %%Looping over time
 %%%%%%%%%%%%%%%%%%%%%
 for i=1:length(Driver)
-    
 
     %Check if patch is TRUE or FALSE. If patch_tf == 1, run model with only
     %1 type of selection (i.e. 1 environment) where sampling is weighted by
@@ -554,7 +553,8 @@ for i=1:length(Driver)
         else
         %Sampling the next generation, negative weighting (i.e. the
         %reciprocal number of genetic mutations)
-        reciprocal_weights = 1./population.co(:,5);
+        reciprocal_weights = 1./(0.1+population.co(:,5));
+        %reciprocal_weights = 1./(population.co(:,5));
         
         %pause the clock
         c=clock;
